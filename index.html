@@ -5,84 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Infly – Space in Motion</title>
 
-  <meta name="description" content="Infly – Space in Motion. Indoor drone fly-throughs for real estate and commercial spaces." />
+  <meta name="description" content="Infly – Cinematic indoor drone fly-throughs for real estate and commercial spaces." />
 
   <style>
+    /* Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
     }
 
     html, body {
       width: 100%;
       height: 100%;
+      background: transparent;
       overflow: hidden;
-      background: #000;
     }
 
-    /* Video Background */
+
     .video-bg {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      z-index: -2;
+      z-index: -1;
+      pointer-events: none;
     }
 
-    /* Overlay for readability */
+    /* Soft overlay for readability */
     .overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.45);
+      inset: 0;
+      background: rgba(10, 15, 20, 0.45);
+      backdrop-filter: blur(18px) saturate(120%);
+      -webkit-backdrop-filter: blur(18px) saturate(120%);
       z-index: -1;
     }
 
-    /* Content */
+    /* Layout */
     .content {
       height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
+      justify-content: center;
+      padding: 8vw;
       color: #fff;
-      padding: 20px;
+    }
+
+    /* Glass card */
+    .card {
+      width: min(480px, 100%);
+      padding: 40px 36px;
+      border-radius: 28px;
+      background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.18),
+        rgba(255,255,255,0.08)
+      );
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.35);
     }
 
     h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      letter-spacing: 2px;
+      font-size: 3rem;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     h2 {
-      font-size: 1.1rem;
-      font-weight: 300;
+      font-size: 1rem;
+      font-weight: 400;
       letter-spacing: 1px;
-      opacity: 0.9;
-      margin-bottom: 40px;
+      opacity: 0.85;
+      margin-bottom: 26px;
     }
 
     .tagline {
-      max-width: 700px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       line-height: 1.6;
-      margin-bottom: 40px;
       opacity: 0.9;
+      margin-bottom: 30px;
     }
 
-    /* Contact */
     .contact {
-      font-size: 1rem;
-      margin-bottom: 30px;
+      font-size: 0.9rem;
+      margin-bottom: 26px;
+    }
+
+    .contact p {
+      margin-bottom: 6px;
     }
 
     .contact a {
@@ -92,17 +108,17 @@
       padding-bottom: 2px;
     }
 
-    /* Social Links */
     .socials {
       display: flex;
-      gap: 25px;
+      gap: 18px;
     }
 
     .socials a {
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
       color: #fff;
       text-decoration: none;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
       opacity: 0.85;
       transition: opacity 0.2s ease;
     }
@@ -111,50 +127,73 @@
       opacity: 1;
     }
 
-    /* Footer */
     footer {
       position: fixed;
-      bottom: 15px;
+      bottom: 18px;
+      left: 0;
       width: 100%;
       text-align: center;
       font-size: 0.7rem;
       opacity: 0.6;
       color: #fff;
     }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .content {
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .card {
+        padding: 32px 26px;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Background Video -->
-  <video class="video-bg" autoplay muted loop playsinline>
-    <source src="background.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
+  <!-- Background video -->
+  <video class="video-bg" autoplay muted loop playsinline preload="auto">
+    <source src="infly-bg-clean.mp4" type="video/mp4">
   </video>
+
 
   <div class="overlay"></div>
 
-  <!-- Main Content -->
+  <!-- Content -->
   <div class="content">
-    <h1>Infly</h1>
-    <h2>Space in Motion</h2>
+    <div class="card">
+      <h1>Infly</h1>
+      <h2>Space in Motion</h2>
 
-    <div class="tagline">
-      Cinematic indoor drone fly-throughs for real estate, commercial spaces, and venues. One seamless motion that tells the full story of a space.
-    </div>
+      <div class="tagline">
+        Cinematic indoor drone fly-throughs for real estate,
+        commercial spaces, and venues. One seamless motion
+        that tells the full story of a space.
+      </div>
 
-    <div class="contact">
-      <p>Email: <a href="mailto:hello@infly.au">hello@infly.au</a></p>
-      <p>Phone: <a href="tel:+61400000000">+61 400 000 000</a></p>
-    </div>
+      <div class="contact">
+        <p>Email:
+          <a href="mailto:kristof@infly.com.au">
+            kristof@infly.com.au
+          </a>
+        </p>
+      </div>
 
-    <div class="socials">
-      <a href="https://instagram.com/infly_au" target="_blank">Instagram</a>
-      <a href="https://www.tiktok.com/@infly_au" target="_blank">TikTok</a>
+      <div class="socials">
+        <a href="https://instagram.com/infly" target="_blank">Instagram</a>
+        <a href="https://tiktok.com/@infly" target="_blank">TikTok</a>
+      </div>
     </div>
   </div>
 
   <footer>
-    © 2026 Infly – Space in Motion
+    © 2026 Infly – Space in Motion · ABN: 30 295 757 657
   </footer>
 
 </body>
