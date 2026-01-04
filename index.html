@@ -25,6 +25,31 @@
       overflow: hidden;
     }
 
+    .logo {
+      font-size: 4.6rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .logo-in {
+      color: transparent;
+      -webkit-text-stroke: 1px #fff;
+      text-stroke: 1px #fff;
+    }
+
+    .logo-fly {
+      color: #fff;
+      font-weight: 800;
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 3.8rem;
+      }
+    }
+
 
     .video-bg {
       position: fixed;
@@ -94,8 +119,8 @@
     }
 
     .contact {
-      font-size: 0.9rem;
-      margin-bottom: 26px;
+      text-align: center;
+      margin-bottom: 28px;
     }
 
     .contact p {
@@ -103,29 +128,46 @@
     }
 
     .contact a {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
       color: #fff;
       text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.4);
-      padding-bottom: 2px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      backdrop-filter: blur(8px);
+      transition: all 0.25s ease;
     }
 
     .socials {
       display: flex;
-      gap: 18px;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 12px;
     }
 
     .socials a {
-      font-size: 0.8rem;
-      letter-spacing: 1px;
+      font-size: 0.7rem;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
+      font-weight: 600;
       color: #fff;
       text-decoration: none;
-      opacity: 0.85;
-      transition: opacity 0.2s ease;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(6px);
+      opacity: 0.9;
+      transition: all 0.25s ease;
     }
 
     .socials a:hover {
       opacity: 1;
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(255,255,255,0.7);
     }
 
     footer {
@@ -169,7 +211,9 @@
   <!-- Content -->
   <div class="content">
     <div class="card">
-      <h1>Infly</h1>
+      <h1 class="logo">
+        <span class="logo-in">In</span><span class="logo-fly">fly</span>
+      </h1>
       <h2>Space in Motion</h2>
 
       <div class="tagline">
@@ -179,7 +223,7 @@
       </div>
 
       <div class="contact">
-        <p>Email:
+        <p>
           <a href="mailto:kristof@infly.com.au">
             kristof@infly.com.au
           </a>
